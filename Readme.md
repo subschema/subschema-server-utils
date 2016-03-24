@@ -18,3 +18,10 @@ the errors is returned
 
 see [tests](./test/validateFactory-test.js) for more information on usage.
 
+There are two usable files, that provide this.  One has all the dependencies
+built in (the default). The other depends on subschema 
+to use the existing subschema module.
+
+```js
+var externals = require('subschema-server-utils/externals')
+```
