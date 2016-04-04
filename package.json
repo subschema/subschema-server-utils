@@ -1,6 +1,6 @@
 {
   "name": "subschema-server-utils",
-  "version": "1.1.11",
+  "version": "1.2.1",
   "description": "Run validators against a schema and data",
   "main": "dist/index",
   "repository": {
