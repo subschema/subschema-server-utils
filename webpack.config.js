@@ -44,14 +44,6 @@ if (isExternal) {
             root: 'Subschema'
         }
     }];
-} else {
-    Object.assign(config.resolve.alias, {
-        'subschema-prop-types': join('shim/empty'),
-        'subschema': join('../subschema/src/'),
-        'Subschema': join('shim/Subschema'),
-        'react': join('shim/react'),
-        'React': join('shim/react'),
-    })
 }
 console.log(isTest ? 'Test' : 'dist', ' ', isExternal ? 'External' : '', ' ');
 if (isTest) {
