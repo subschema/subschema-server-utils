@@ -37,6 +37,29 @@ describe("validateFactory", function () {
         );
 
     });
+    it('should validate match', function () {
+        const validate = validateFactory({
+            schema: {
+                test: 'Text',
+                'test2': {
+                    validators: [{"type": "match", field: "test", message: "Match"}]
+                }
+            }
+        }, loader);
+
+        return all(
+            validate(ValueManager({
+                test: 'stuff',
+                test2: 'notstuff'
+            })).then((r)=>expect(r.test2[0].message).toBe('Match')),
+
+            validate({
+                test: 1,
+                test2: 1
+            }).then(r=>expect(r).toNotExist()),
+        );
+
+    });
     it('should validate nested with errors', function () {
         const validate = validateFactory({
             schema: {
@@ -184,7 +207,7 @@ describe("validateFactory", function () {
                 other: {
                     subSchema: {
                         more: {
-                            validators: [{type: "async",value: 2, timeout: 400, message: 'Still Not Right'}]
+                            validators: [{type: "async", value: 2, timeout: 400, message: 'Still Not Right'}]
                         }
                     }
                 }

@@ -49,10 +49,8 @@ function truthy(f) {
  */
 export default function validateFactory(schema, loader) {
     const context = {loader};
-
-
     function buildFieldsets(schema, path, validatorMap = {}, fields, fieldsets) {
-        const normalSchema = normalize(schema, fields, fieldsets, {loader});
+        const normalSchema = normalize(schema, fields, fieldsets, context);
         const normalFieldsets = normalizeFieldsets(normalSchema.fieldsets, normalSchema.fields);
 
         makeFieldsets(normalFieldsets.fieldsets, normalSchema.schema, path, validatorMap);
@@ -65,7 +63,7 @@ export default function validateFactory(schema, loader) {
                     const validators = field.validator(valueManager.path(pkey), valueManager) || [];
 
                     return Promise.all(validators).then((error)=> {
-                        error = error && error.filter(truthy)
+                        error = error && error.filter(truthy);
                         if (error.length) {
                             errors[pkey] = error;
                         }
