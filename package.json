@@ -36,8 +36,8 @@
     "lodash": "^3.10.1",
     "mocha": "^2.4.5",
     "null-loader": "^0.1.1",
-    "react": "^15.0.0",
-    "subschema": "^1.3.0",
+    "react": "^15.4.0",
+    "subschema": "^1.6.0",
     "webpack": "^1.12.14"
   }
 }
