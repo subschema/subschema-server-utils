@@ -1,6 +1,6 @@
 "use strict";
 
-import {validators, ValueManager, loaderFactory} from "subschema/dist/subschema-server";
+import {validators, ValueManager, loaderFactory} from "Subschema";
 import validateFactory from "./validateFactory";
 
 const loader = loaderFactory();
