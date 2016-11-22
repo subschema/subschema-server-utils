@@ -14,7 +14,7 @@ var config = {
 
         alias: {
             'subschema-server-utils': join('dist/index'),
-            'Subschema': join('node_modules/subschema/src/index.jsx')
+            //      'Subschema': join('node_modules/subschema/dist/subschema-server.js')
         }
     },
 
@@ -42,15 +42,15 @@ var config = {
     }
 
 };
-if (isExternal) {
-    config.externals = [{
-        Subschema: {
-            commonjs: 'subschema',
-            commonjs2: 'subschema',
-            root: 'Subschema'
-        }
-    }];
-}
+//if (isExternal) {
+config.externals = [{
+    Subschema: {
+        commonjs: 'subschema',
+        commonjs2: 'subschema',
+        root: 'Subschema'
+    }
+}];
+//}
 console.log(isTest ? 'Test' : 'dist', ' ', isExternal ? 'External' : '', ' ');
 if (isTest) {
 
